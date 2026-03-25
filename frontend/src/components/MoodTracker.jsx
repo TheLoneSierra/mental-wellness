@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
 import Sidebar from "./Sidebar";
+import { TiHome } from "react-icons/ti";
+import { VscSmiley } from "react-icons/vsc";
+import { BsJournalBookmark } from "react-icons/bs";
+import { AiOutlineStock } from "react-icons/ai";
+import { BsEmojiTear } from "react-icons/bs";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 const MoodTracker = () => {
     return (
@@ -64,8 +70,8 @@ const MoodTracker = () => {
                                 />
 
                                 <div className="mt-8 flex justify-end">
-                                    <button className="px-10 py-4 bg-[#246965] text-white rounded-full font-bold">
-                                        Save Reflection →
+                                    <button className="px-10 py-4 bg-[#246965] text-white rounded-full font-bold flex items-center gap-2">
+                                        Save Reflection <FaLongArrowAltRight size={16} />
                                     </button>
                                 </div>
                             </div>
@@ -119,7 +125,7 @@ const MoodTracker = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="bg-[#f5f4ed] p-8 rounded-xl flex gap-6">
-                                <div className="text-3xl">😊</div>
+                                <div className="text-3xl"><VscSmiley size={32} /></div>
                                 <div>
                                     <h5 className="font-bold">Feeling accomplished</h5>
                                     <p className="text-sm italic opacity-70">
@@ -129,7 +135,7 @@ const MoodTracker = () => {
                             </div>
 
                             <div className="bg-[#f5f4ed] p-8 rounded-xl flex gap-6">
-                                <div className="text-3xl">😰</div>
+                                <div className="text-3xl"><BsEmojiTear size={32} /></div>
                                 <div>
                                     <h5 className="font-bold">Morning jitters</h5>
                                     <p className="text-sm italic opacity-70">
@@ -166,24 +172,24 @@ const MoodTracker = () => {
             <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-xl z-50 px-6 py-4 flex justify-around items-center border-t rounded-t-3xl shadow-2xl">
 
                 <Link to="/" className="flex flex-col items-center text-gray-400 text-xs">
-                    🏠
+                    <TiHome size={24} />
                     <span>Home</span>
                 </Link>
 
                 <Link to="/mood" className="flex flex-col items-center text-[#246965] text-xs font-bold">
-                    😊
+                    <VscSmiley size={24} />
                     <span>Mood</span>
                 </Link>
 
-                <button className="flex flex-col items-center text-gray-400 text-xs">
-                    ✏️
+                <Link to="/journal" className="flex flex-col items-center text-gray-400 text-xs">
+                    <BsJournalBookmark size={24} />
                     <span>Journal</span>
-                </button>
+                </Link>
 
-                <button className="flex flex-col items-center text-gray-400 text-xs">
-                    📊
+                <Link to="/insights" className="flex flex-col items-center text-gray-400 text-xs">
+                    <AiOutlineStock size={24} />
                     <span>Insights</span>
-                </button>
+                </Link>
 
             </nav>
 

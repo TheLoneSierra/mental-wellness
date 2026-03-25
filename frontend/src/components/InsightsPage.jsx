@@ -1,5 +1,14 @@
 import { Link } from "react-router-dom";
 import Sidebar from "./Sidebar";
+import { TiHome } from "react-icons/ti";
+import { VscSmiley } from "react-icons/vsc";
+import { BsJournalBookmark } from "react-icons/bs";
+import { AiOutlineStock } from "react-icons/ai";
+import { GiMeditation } from "react-icons/gi";
+import { IoWater } from "react-icons/io5";
+import { BiSolidMoon } from "react-icons/bi";
+import { CiCirclePlus } from "react-icons/ci";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 const InsightsPage = () => {
     const data = [
@@ -47,8 +56,8 @@ const InsightsPage = () => {
 
                             <div className="flex justify-between mb-4">
                                 <h3 className="font-[Noto_Serif] text-2xl">Weekly Resonance</h3>
-                                <button className="text-[#246965] font-bold text-sm">
-                                    Details →
+                                <button className="text-[#246965] font-bold text-sm flex items-center gap-1">
+                                    Details <FaLongArrowAltRight size={14} />
                                 </button>
                             </div>
 
@@ -115,8 +124,11 @@ const InsightsPage = () => {
                                     </p>
                                 </div>
 
-                                <div className="border-2 border-dashed p-8 rounded-xl text-center">
-                                    + Capture a moment
+                                <div className="border-2 border-dashed p-8 rounded-xl text-center flex flex-col items-center gap-3">
+                                    <div className="bg-purple-200 rounded-full p-3">
+                                        <CiCirclePlus size={32} className="text-purple-600" />
+                                    </div>
+                                    Capture a moment
                                 </div>
 
                             </div>
@@ -127,15 +139,24 @@ const InsightsPage = () => {
                         <section className="xl:col-span-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
                             <div className="bg-white p-6 rounded-xl flex items-center gap-4">
-                                🧘 5m Meditation
+                                <div className="bg-pink-200 rounded-full p-3">
+                                    <GiMeditation size={24} className="text-pink-600" />
+                                </div>
+                                5m Meditation
                             </div>
 
                             <div className="bg-white p-6 rounded-xl flex items-center gap-4">
-                                💧 Hydration Goal
+                                <div className="bg-blue-200 rounded-full p-3">
+                                    <IoWater size={24} className="text-blue-600" />
+                                </div>
+                                Hydration Goal
                             </div>
 
                             <div className="bg-white p-6 rounded-xl flex items-center gap-4">
-                                🌙 Sleep Analysis
+                                <div className="bg-green-200 rounded-full p-3">
+                                    <BiSolidMoon size={24} className="text-green-600" />
+                                </div>
+                                Sleep Analysis
                             </div>
 
                         </section>
@@ -166,19 +187,23 @@ const InsightsPage = () => {
             <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-xl z-50 px-6 py-4 flex justify-around border-t">
 
                 <Link to="/" className="text-[#246965] text-xs flex flex-col items-center">
-                    🏠 Home
+                    <TiHome size={24} />
+                    <span>Home</span>
                 </Link>
 
                 <Link to="/mood" className="text-gray-400 text-xs flex flex-col items-center">
-                    😊 Mood
+                    <VscSmiley size={24} />
+                    <span>Mood</span>
                 </Link>
 
                 <Link to="/journal" className="text-gray-400 text-xs flex flex-col items-center">
-                    ✏️ Journal
+                    <BsJournalBookmark size={24} />
+                    <span>Journal</span>
                 </Link>
 
                 <Link to="/insights" className="text-gray-400 text-xs flex flex-col items-center">
-                    📊 Insights
+                    <AiOutlineStock size={24} />
+                    <span>Insights</span>
                 </Link>
 
             </nav>

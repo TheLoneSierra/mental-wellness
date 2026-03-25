@@ -1,4 +1,8 @@
 import { Link } from "react-router-dom";
+import { TiHome } from "react-icons/ti";
+import { VscSmiley } from "react-icons/vsc";
+import { BsJournalBookmark } from "react-icons/bs";
+import { AiOutlineStock } from "react-icons/ai";
 
 const Sidebar = ({ activeRoute, isFixed }) => {
     return (
@@ -6,7 +10,7 @@ const Sidebar = ({ activeRoute, isFixed }) => {
             }`}>
 
             <div className="px-8 mb-10">
-                <h1 className="font-[Noto_Serif] text-xl text-[#246965] font-bold">
+                <h1 className="font-[Noto_Serif] italic text-xl text-[#246965]">
                     SerenityAI
                 </h1>
             </div>
@@ -33,7 +37,7 @@ const Sidebar = ({ activeRoute, isFixed }) => {
                     className={`flex items-center gap-3 w-full px-4 py-3 rounded-full transition-all ${activeRoute === "/" ? "bg-white text-[#246965] shadow-sm" : "hover:bg-white/50"
                         }`}
                 >
-                    🏠 Home
+                    <TiHome size={20} /> Home
                 </Link>
 
                 <Link
@@ -41,7 +45,7 @@ const Sidebar = ({ activeRoute, isFixed }) => {
                     className={`flex items-center gap-3 w-full px-4 py-3 rounded-full transition-all ${activeRoute === "/mood" ? "bg-white text-[#246965] shadow-sm" : "hover:bg-white/50"
                         }`}
                 >
-                    😊 Mood
+                    <VscSmiley size={20} /> Mood
                 </Link>
 
                 <Link
@@ -49,7 +53,7 @@ const Sidebar = ({ activeRoute, isFixed }) => {
                     className={`flex items-center gap-3 w-full px-4 py-3 rounded-full transition-all ${activeRoute === "/journal" ? "bg-white text-[#246965] shadow-sm" : "hover:bg-white/50"
                         }`}
                 >
-                    ✏️ Journal
+                    <BsJournalBookmark size={20} /> Journal
                 </Link>
 
                 <Link
@@ -57,7 +61,7 @@ const Sidebar = ({ activeRoute, isFixed }) => {
                     className={`flex items-center gap-3 w-full px-4 py-3 rounded-full transition-all ${activeRoute === "/insights" ? "bg-white text-[#246965] shadow-sm" : "hover:bg-white/50"
                         }`}
                 >
-                    📊 Insights
+                    <AiOutlineStock size={20} /> Insights
                 </Link>
 
             </nav>

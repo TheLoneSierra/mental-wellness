@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
 import Sidebar from "./Sidebar";
+import { TiHome } from "react-icons/ti";
+import { VscSmiley } from "react-icons/vsc";
+import { BsJournalBookmark } from "react-icons/bs";
+import { AiOutlineStock } from "react-icons/ai";
+import { SlCalender } from "react-icons/sl";
+import { IoCameraOutline } from "react-icons/io5";
 
 const JournalPage = () => {
     return (
@@ -27,7 +33,7 @@ const JournalPage = () => {
                     </div>
 
                     <div className="flex items-center gap-4 bg-[#f5f4ed] px-6 py-3 rounded-full">
-                        📅 October 24, 2024
+                        <SlCalender size={20} /> October 24, 2024
                     </div>
                 </header>
 
@@ -51,8 +57,8 @@ const JournalPage = () => {
 
                             <div className="mt-8 flex justify-between">
                                 <div className="flex gap-4 text-sm">
-                                    <button>😊 Set Mood</button>
-                                    <button>📷 Add Photo</button>
+                                    <button><VscSmiley size={18} className="inline mr-1" /> Set Mood</button>
+                                    <button><IoCameraOutline size={18} className="inline mr-1" /> Add Photo</button>
                                 </div>
 
                                 <button className="bg-[#246965] text-white px-8 py-1 rounded-full font-bold">
@@ -133,24 +139,24 @@ const JournalPage = () => {
             <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-xl z-50 px-6 py-4 flex justify-around items-center border-t rounded-t-3xl shadow-2xl">
 
                 <Link to="/" className="flex flex-col items-center text-gray-400 text-xs">
-                    🏠
+                    <TiHome size={24} />
                     <span>Home</span>
                 </Link>
 
                 <Link to="/mood" className="flex flex-col items-center text-gray-400 text-xs">
-                    😊
+                    <VscSmiley size={24} />
                     <span>Mood</span>
                 </Link>
 
                 <Link to="/journal" className="flex flex-col items-center text-[#246965] text-xs font-bold">
-                    ✏️
+                    <BsJournalBookmark size={24} />
                     <span>Journal</span>
                 </Link>
 
-                <button className="flex flex-col items-center text-gray-400 text-xs">
-                    📊
+                <Link to="/insights" className="flex flex-col items-center text-gray-400 text-xs">
+                    <AiOutlineStock size={24} />
                     <span>Insights</span>
-                </button>
+                </Link>
 
             </nav>
 

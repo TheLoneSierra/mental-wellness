@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import { VscSmiley } from "react-icons/vsc";
+import { FaLongArrowAltRight } from "react-icons/fa";
+
 const LandingPage = () => {
     return (
         <div className="bg-[#fbf9f4] text-[#31332e] font-[Manrope]">
@@ -114,7 +117,7 @@ const LandingPage = () => {
                         {/* MOOD */}
                         <div className="md:col-span-2 bg-[#f5f4ed] p-10 rounded-xl">
                             <div className="bg-white w-14 h-14 rounded-full flex items-center justify-center mb-8 shadow-sm text-[#246965]">
-                                😊
+                                <VscSmiley size={32} />
                             </div>
 
                             <h3 className="font-[Noto_Serif] text-3xl font-bold mb-4">
@@ -138,7 +141,7 @@ const LandingPage = () => {
                             </div>
 
                             <button className="font-bold flex items-center gap-2">
-                                New Entry →
+                                New Entry <FaLongArrowAltRight size={16} />
                             </button>
                         </div>
 
