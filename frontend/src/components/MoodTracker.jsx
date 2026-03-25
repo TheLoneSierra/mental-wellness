@@ -1,49 +1,11 @@
 import { Link } from "react-router-dom";
+import Sidebar from "./Sidebar";
 
 const MoodTracker = () => {
     return (
         <div className="bg-[#fbf9f4] text-[#31332e] min-h-screen flex overflow-hidden font-[Manrope]">
 
-            {/* SIDEBAR */}
-            <aside className="hidden md:flex flex-col h-screen w-64 rounded-r-[3rem] bg-[#f5f4ed] py-8 space-y-2 shadow-[40px_0_40px_rgba(93,70,131,0.06)]">
-
-                <div className="px-8 mb-10">
-                    <h1 className="font-[Noto_Serif] text-xl text-[#246965]">
-                        SerenityAI
-                    </h1>
-                </div>
-
-                <div className="px-6 mb-8 flex items-center gap-3">
-                    <img
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBHseuh_R2T6uXwOTHUzhnUuMaFIVQu3znQM0vLqV6RPgtdsiekTWKthUFaXLVo15RyOo7kSaazhWSNf0TJcuq40JpSx_f5LTfV-3Ti8zG9R2PTC9y9Av0UqpLb-MWsV00_CZzDScQVszOQ2lQjUh7sY8QVg4Xs9Yv2bRBKYepAz2eAS4_qhdFCSpxBlkZ7hR6ob5mEpoeF9aHfJaRk1v979-kBsCiVUxSkTZCPE5Zr8sUzNyTOzNdGK0tZeVIsitlifpvv6Fea8qX"
-                        className="w-10 h-10 rounded-full object-cover"
-                    />
-                    <div>
-                        <p className="text-sm font-medium text-[#246965]">
-                            Welcome back
-                        </p>
-                        <p className="text-xs opacity-70">Your sanctuary awaits</p>
-                    </div>
-                </div>
-
-                <nav className="flex-1 space-y-2">
-                    <Link to="/" className="flex items-center gap-3 w-full px-4 py-3 rounded-full hover:bg-white/50">
-                        🏠 Home
-                    </Link>
-
-                    <Link to="/mood" className="flex items-center gap-3 w-full px-4 py-3 rounded-full bg-white text-[#246965] shadow-sm">
-                        😊 Mood
-                    </Link>
-
-                    <button className="flex items-center gap-3 w-full px-4 py-3 rounded-full hover:bg-white/50 transition-all">
-                        ✏️ Journal
-                    </button>
-
-                    <button className="flex items-center gap-3 w-full px-4 py-3 rounded-full hover:bg-white/50 transition-all">
-                        📊 Insights
-                    </button>
-                </nav>
-            </aside>
+            <Sidebar activeRoute="/mood" isFixed={false} />
 
             {/* MAIN */}
             <main className="flex-1 overflow-y-auto h-screen">

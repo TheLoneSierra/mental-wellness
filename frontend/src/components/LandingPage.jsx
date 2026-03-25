@@ -21,9 +21,12 @@ const LandingPage = () => {
                         >
                             Mood Tracker
                         </Link>
-                        <a className="opacity-70 hover:opacity-100 transition">
+                        <Link
+                            to="/journal"
+                            className="opacity-70 hover:opacity-100 transition"
+                        >
                             Journal
-                        </a>
+                        </Link>
                     </div>
 
                     <button className="bg-[#246965] text-white px-6 py-2.5 rounded-full font-semibold shadow-sm hover:opacity-90 active:scale-95 transition">
