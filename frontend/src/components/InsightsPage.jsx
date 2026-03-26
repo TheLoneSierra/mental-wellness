@@ -177,7 +177,7 @@ const InsightsPage = () => {
                             <a>Support</a>
                             <a>Philosophy</a>
                         </div>
-                        <span>© 2024 SerenityAI</span>
+                        <span>© 2026 SerenityAI</span>
                     </div>
                 </footer>
 

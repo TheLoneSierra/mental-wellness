@@ -162,7 +162,7 @@ const MoodTracker = () => {
                             <a>Philosophy</a>
                         </div>
 
-                        <p className="text-xs">© 2024 SerenityAI</p>
+                        <p className="text-xs">© 2026 SerenityAI</p>
                     </div>
                 </footer>
 

@@ -33,7 +33,7 @@ const JournalPage = () => {
                     </div>
 
                     <div className="flex items-center gap-4 bg-[#f5f4ed] px-6 py-3 rounded-full">
-                        <SlCalender size={20} /> October 24, 2024
+                        <SlCalender size={20} /> October 24, 2026
                     </div>
                 </header>
 
@@ -129,7 +129,7 @@ const JournalPage = () => {
                             <a>Support</a>
                             <a>Philosophy</a>
                         </div>
-                        <span>© 2024 SerenityAI</span>
+                        <span>© 2026 SerenityAI</span>
                     </div>
                 </footer>
 

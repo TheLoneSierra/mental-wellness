@@ -1,8 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { VscSmiley } from "react-icons/vsc";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
 const LandingPage = () => {
+    const navigate = useNavigate();
+
+    const handleStartClick = () => {
+        navigate('/login');
+    };
+
     return (
         <div className="bg-[#fbf9f4] text-[#31332e] font-[Manrope]">
 
@@ -32,7 +38,10 @@ const LandingPage = () => {
                         </Link>
                     </div>
 
-                    <button className="bg-[#246965] text-white px-6 py-2.5 rounded-full font-semibold shadow-sm hover:opacity-90 active:scale-95 transition">
+                    <button
+                        onClick={handleStartClick}
+                        className="bg-[#246965] text-white px-6 py-2.5 rounded-full font-semibold shadow-sm hover:opacity-90 active:scale-95 transition"
+                    >
                         Get Started
                     </button>
                 </div>
@@ -61,7 +70,10 @@ const LandingPage = () => {
                             </p>
 
                             <div className="flex flex-wrap gap-4">
-                                <button className="bg-[#246965] text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-95 transition">
+                                <button
+                                    onClick={handleStartClick}
+                                    className="bg-[#246965] text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-95 transition"
+                                >
                                     Start Your Wellness Journey
                                 </button>
 
@@ -198,7 +210,7 @@ const LandingPage = () => {
                     </div>
 
                     <div className="text-xs uppercase">
-                        © 2024 SerenityAI
+                        © 2026 SerenityAI
                     </div>
 
                 </div>
