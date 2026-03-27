@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import authRoutes from "./routes/auth.js";
+import affirmationRoutes from "./routes/affirmationRoute.js";
 
 dotenv.config();
 
@@ -39,6 +40,7 @@ mongoose
 
 // ✅ Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/affirmations", affirmationRoutes);
 
 // ✅ Health check
 app.get("/api/health", (req, res) => {

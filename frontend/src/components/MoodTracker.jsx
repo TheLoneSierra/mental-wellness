@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import { TiHome } from "react-icons/ti";
@@ -8,6 +9,25 @@ import { BsEmojiTear } from "react-icons/bs";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
 const MoodTracker = () => {
+
+    const [quote, setQuote] = useState("");
+
+    useEffect(() => {
+        const fetchQuote = async () => {
+            try {
+                const res = await fetch("http://localhost:5000/api/affirmations");
+                const data = await res.json();
+
+                setQuote(data.quote);
+            } catch (err) {
+                console.error(err);
+                setQuote("Stay grounded and keep moving forward.");
+            }
+        };
+
+        fetchQuote();
+    }, []);
+
     return (
         <div className="bg-[#fbf9f4] text-[#31332e] min-h-screen flex overflow-hidden font-[Manrope]">
 
@@ -36,7 +56,7 @@ const MoodTracker = () => {
                         </span>
 
                         <h3 className="font-[Noto_Serif] text-3xl italic mb-6">
-                            "I am at peace with who I am, and I trust the journey of my life to unfold with grace."
+                            {quote ? `"${quote}"` : "Loading..."}
                         </h3>
 
                         <p className="text-sm opacity-80">
