@@ -15,7 +15,7 @@ const MoodTracker = () => {
     useEffect(() => {
         const fetchQuote = async () => {
             try {
-                const res = await fetch("http://localhost:5000/api/affirmations");
+                const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/affirmations`);
                 const data = await res.json();
 
                 setQuote(data.quote);
