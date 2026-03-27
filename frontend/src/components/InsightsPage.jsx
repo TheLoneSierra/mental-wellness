@@ -10,6 +10,8 @@ import { IoWater, IoPersonOutline, IoSettingsOutline } from "react-icons/io5";
 import { BiSolidMoon } from "react-icons/bi";
 import { CiCirclePlus } from "react-icons/ci";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { IoIosLogOut } from "react-icons/io";
+
 
 const InsightsPage = () => {
     const data = [
@@ -207,9 +209,7 @@ const InsightsPage = () => {
                             <div className="mb-6">
 
                                 <div className="w-16 h-16 bg-[#f5f4ed] rounded-full flex items-center justify-center mx-auto mb-6">
-                                    <span className="material-symbols-outlined text-[#246965] text-3xl">
-                                        logout
-                                    </span>
+                                    <IoIosLogOut className="text-[#246965] text-3xl" />
                                 </div>
 
                                 <h2 className="font-[Noto_Serif] text-2xl font-bold text-[#31332e]">
