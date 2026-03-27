@@ -8,10 +8,13 @@ import { AiOutlineStock } from "react-icons/ai";
 import { BsEmojiTear } from "react-icons/bs";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { IoPersonOutline, IoSettingsOutline } from "react-icons/io5";
+import { IoIosLogOut } from "react-icons/io";
 
 const MoodTracker = () => {
 
     const [quote, setQuote] = useState("");
+    const [showLogoutModal, setShowLogoutModal] = useState(false);
+
     const today = new Date().toLocaleDateString("en-US", {
         month: "long",
         day: "numeric",
@@ -56,9 +59,11 @@ const MoodTracker = () => {
 
                     {/* RIGHT SIDE ICONS */}
                     <div className="flex items-center gap-4">
-                        <Link to="/logout">
-                            <IoPersonOutline size={18} className="cursor-pointer" />
-                        </Link>
+                        <IoPersonOutline
+                            size={18}
+                            className="cursor-pointer"
+                            onClick={() => setShowLogoutModal(true)}
+                        />
                         <IoSettingsOutline size={18} className="cursor-pointer" />
                     </div>
 
@@ -204,6 +209,54 @@ const MoodTracker = () => {
                     </div>
                 </footer>
 
+                {showLogoutModal && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
+
+                        {/* BACKDROP */}
+                        <div className="absolute inset-0 bg-[#dadad2]/40 backdrop-blur-md"></div>
+
+                        {/* MODAL */}
+                        <div className="relative bg-white w-full max-w-sm rounded-xl p-10 shadow-[0_-4px_40px_rgba(93,70,131,0.06)] border border-gray-200 text-center">
+
+                            <div className="mb-6">
+
+                                <div className="w-16 h-16 bg-[#f5f4ed] rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <IoIosLogOut className="text-[#246965] text-3xl" />
+                                </div>
+
+                                <h2 className="font-[Noto_Serif] text-2xl font-bold text-[#31332e]">
+                                    Too soon to logout?
+                                </h2>
+
+                                <p className="mt-3 text-[#5e6059] text-sm leading-relaxed">
+                                    Your session progress is being saved, but your journey is just beginning.
+                                </p>
+
+                            </div>
+
+                            <div className="flex flex-col gap-3">
+
+                                {/* STAY BUTTON */}
+                                <button
+                                    onClick={() => setShowLogoutModal(false)}
+                                    className="w-full py-4 bg-[#246965] text-white rounded-full font-bold hover:opacity-90 transition-all active:scale-95"
+                                >
+                                    No, Stay
+                                </button>
+
+                                {/* LOGOUT BUTTON */}
+                                <button
+                                    onClick={() => window.location.href = "/logout"}
+                                    className="w-full py-4 text-[#246965] font-bold border border-[#246965]/20 rounded-full hover:bg-[#acefe9]/20 transition-all active:scale-95"
+                                >
+                                    Yes, Logout
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                )}
             </main>
 
             {/* MOBILE + TABLET BOTTOM NAV */}
