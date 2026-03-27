@@ -8,6 +8,12 @@ import { SlCalender } from "react-icons/sl";
 import { IoCameraOutline } from "react-icons/io5";
 
 const JournalPage = () => {
+
+    const today = new Date().toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+    });
     return (
         <div className="bg-[#fbf9f4] text-[#31332e] font-[Manrope] min-h-screen flex">
 
@@ -33,7 +39,7 @@ const JournalPage = () => {
                     </div>
 
                     <div className="flex items-center gap-4 bg-[#f5f4ed] px-6 py-3 rounded-full">
-                        <SlCalender size={20} /> October 24, 2026
+                        <SlCalender size={18} /> {today}
                     </div>
                 </header>
 

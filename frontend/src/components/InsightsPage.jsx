@@ -5,7 +5,7 @@ import { VscSmiley } from "react-icons/vsc";
 import { BsJournalBookmark } from "react-icons/bs";
 import { AiOutlineStock } from "react-icons/ai";
 import { GiMeditation } from "react-icons/gi";
-import { IoWater } from "react-icons/io5";
+import { IoWater, IoPersonOutline, IoSettingsOutline } from "react-icons/io5";
 import { BiSolidMoon } from "react-icons/bi";
 import { CiCirclePlus } from "react-icons/ci";
 import { FaLongArrowAltRight } from "react-icons/fa";
@@ -29,7 +29,17 @@ const InsightsPage = () => {
             {/* MAIN */}
             <main className="flex-1 overflow-y-auto">
 
-                <div className="max-w-7xl mx-auto px-6 pt-24 pb-32 lg:pb-16">
+                {/* HEADER */}
+                <header className="sticky top-0 bg-[#fbf9f4]/80 backdrop-blur-md px-6 py-6 max-w-7xl mx-auto flex justify-end items-center">
+                    <div className="flex items-center gap-4">
+                        <Link to="/logout">
+                            <IoPersonOutline size={18} className="cursor-pointer" />
+                        </Link>
+                        <IoSettingsOutline size={18} className="cursor-pointer" />
+                    </div>
+                </header>
+
+                <div className="max-w-7xl mx-auto px-6 pt-10 pb-32 lg:pb-16">
 
                     {/* HERO */}
                     <section className="mb-16">
@@ -63,19 +73,15 @@ const InsightsPage = () => {
 
                             <div className="bg-white p-8 rounded-xl shadow">
 
-
-
                                 <div className="h-48 flex items-end gap-2 mb-8">
                                     {data.map((item, i) => (
                                         <div key={i} className="flex-1 flex flex-col items-center justify-end gap-2 h-full">
 
-                                            {/* BAR */}
                                             <div
                                                 className="w-full bg-[#246965] rounded-t"
                                                 style={{ height: `${item.value}%` }}
                                             ></div>
 
-                                            {/* LABEL */}
                                             <span className="text-[10px] text-gray-500 font-semibold">
                                                 {item.day}
                                             </span>
@@ -201,7 +207,7 @@ const InsightsPage = () => {
                     <span>Journal</span>
                 </Link>
 
-                <Link to="/insights" className="text-gray-400 text-xs flex flex-col items-center">
+                <Link to="/insights" className="text-[#246965] text-xs flex flex-col items-center">
                     <AiOutlineStock size={24} />
                     <span>Insights</span>
                 </Link>

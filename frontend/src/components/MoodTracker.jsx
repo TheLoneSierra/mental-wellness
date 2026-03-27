@@ -7,10 +7,16 @@ import { BsJournalBookmark } from "react-icons/bs";
 import { AiOutlineStock } from "react-icons/ai";
 import { BsEmojiTear } from "react-icons/bs";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { IoPersonOutline, IoSettingsOutline } from "react-icons/io5";
 
 const MoodTracker = () => {
 
     const [quote, setQuote] = useState("");
+    const today = new Date().toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+    });
 
     useEffect(() => {
         const fetchQuote = async () => {
@@ -36,14 +42,26 @@ const MoodTracker = () => {
             {/* MAIN */}
             <main className="flex-1 overflow-y-auto h-screen">
 
-                {/* HEADER */}
-                <header className="sticky top-0 bg-[#fbf9f4]/80 backdrop-blur-md px-6 py-6 max-w-7xl mx-auto">
-                    <h2 className="font-[Noto_Serif] font-bold text-2xl text-[#246965]">
-                        Mood Tracker
-                    </h2>
-                    <span className="text-sm opacity-70">
-                        Monday, May 20th
-                    </span>
+                <header className="sticky top-0 bg-[#fbf9f4]/80 backdrop-blur-md px-6 py-6 max-w-7xl mx-auto flex justify-between items-center">
+
+                    {/* LEFT SIDE */}
+                    <div>
+                        <h2 className="font-[Noto_Serif] font-bold text-2xl text-[#246965]">
+                            Mood Tracker
+                        </h2>
+                        <span className="text-sm opacity-70">
+                            {today}
+                        </span>
+                    </div>
+
+                    {/* RIGHT SIDE ICONS */}
+                    <div className="flex items-center gap-4">
+                        <Link to="/logout">
+                            <IoPersonOutline size={18} className="cursor-pointer" />
+                        </Link>
+                        <IoSettingsOutline size={18} className="cursor-pointer" />
+                    </div>
+
                 </header>
 
                 {/* CONTENT */}
@@ -145,7 +163,7 @@ const MoodTracker = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="bg-[#f5f4ed] p-8 rounded-xl flex gap-6">
-                                <div className="text-3xl"><VscSmiley size={32} /></div>
+                                <div className="text-3xl">😊 </div>
                                 <div>
                                     <h5 className="font-bold">Feeling accomplished</h5>
                                     <p className="text-sm italic opacity-70">
@@ -155,7 +173,7 @@ const MoodTracker = () => {
                             </div>
 
                             <div className="bg-[#f5f4ed] p-8 rounded-xl flex gap-6">
-                                <div className="text-3xl"><BsEmojiTear size={32} /></div>
+                                <div className="text-3xl">😰</div>
                                 <div>
                                     <h5 className="font-bold">Morning jitters</h5>
                                     <p className="text-sm italic opacity-70">
