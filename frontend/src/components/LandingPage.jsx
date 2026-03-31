@@ -157,7 +157,7 @@ const LandingPage = () => {
                             </button>
                         </div>
 
-                        {/* AI */}
+                        {/* AI SECTION (FIXED NAVIGATION) */}
                         <div className="bg-white p-10 rounded-xl flex flex-col md:flex-row items-center gap-8 md:col-span-3">
 
                             <div className="md:w-1/2">
@@ -168,7 +168,19 @@ const LandingPage = () => {
                                     AI that listens and helps you reflect better.
                                 </p>
 
-                                <button className="text-[#246965] font-bold border-[#246965]">
+                                <button
+                                    onClick={() => {
+                                        const token = localStorage.getItem("token");
+
+                                        if (!token) {
+                                            localStorage.setItem("redirectAfterLogin", "/chat");
+                                            navigate("/login");
+                                        } else {
+                                            navigate("/chat");
+                                        }
+                                    }}
+                                    className="text-[#246965] font-bold border-[#246965]"
+                                >
                                     Chat with Serenity
                                 </button>
                             </div>
