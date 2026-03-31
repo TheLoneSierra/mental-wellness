@@ -20,7 +20,14 @@ const Login = () => {
 
         try {
             await login(email, password);
-            navigate("/mood");
+            const redirectPath = localStorage.getItem("redirectAfterLogin");
+
+            if (redirectPath) {
+                localStorage.removeItem("redirectAfterLogin");
+                navigate(redirectPath);
+            } else {
+                navigate("/mood");
+            }
         } catch (err) {
             setError(err.message);
         } finally {
