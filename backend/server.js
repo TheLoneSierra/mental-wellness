@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import authRoutes from "./routes/auth.js";
 import affirmationRoutes from "./routes/affirmationRoute.js";
-
+import chatRoutes from "./routes/chat.js";
 dotenv.config();
 
 const app = express();
@@ -40,6 +40,7 @@ mongoose
 
 // ✅ Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/chat", chatRoutes);
 app.use("/api/affirmations", affirmationRoutes);
 
 // ✅ Health check
