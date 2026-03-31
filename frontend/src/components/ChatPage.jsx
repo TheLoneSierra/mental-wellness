@@ -34,7 +34,7 @@ const ChatPage = () => {
 
         try {
             const res = await axios.post(
-                "http://localhost:5000/api/chat",
+                `${import.meta.env.VITE_API_BASE_URL}/api/chat`,
                 { message: text },
                 {
                     headers: {
