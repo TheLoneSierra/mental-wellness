@@ -40,7 +40,7 @@ const LandingPage = () => {
 
                     <button
                         onClick={handleStartClick}
-                        className="bg-[#246965] text-white px-6 py-2.5 rounded-full font-semibold shadow-sm hover:opacity-90 active:scale-95 transition"
+                        className="bg-[#246965] text-white px-6 py-2.5 rounded-full font-semibold shadow-sm hover:opacity-90 active:scale-95 transition cursor-pointer"
                     >
                         Get Started
                     </button>
@@ -72,12 +72,12 @@ const LandingPage = () => {
                             <div className="flex flex-wrap gap-4">
                                 <button
                                     onClick={handleStartClick}
-                                    className="bg-[#246965] text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-95 transition"
+                                    className="bg-[#246965] text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-95 transition cursor-pointer"
                                 >
                                     Start Your Wellness Journey
                                 </button>
 
-                                <button className="backdrop-blur-md bg-white/40 border border-gray-300 px-8 py-4 rounded-full font-bold text-lg text-[#246965]">
+                                <button className="backdrop-blur-md bg-white/40 border border-gray-300 px-8 py-4 rounded-full font-bold text-lg text-[#246965] cursor-pointer">
                                     Learn Our Philosophy
                                 </button>
                             </div>
@@ -99,7 +99,7 @@ const LandingPage = () => {
                             <div className="absolute -bottom-6 -left-12 backdrop-blur-md bg-white/40 p-6 rounded-lg shadow-xl max-w-[240px] hidden md:block border border-white/40">
                                 <div className="flex items-center gap-3 mb-3">
                                     <span className="text-purple-500 bg-purple-100 p-2 rounded-full">
-                                        ❤️
+                                        💜
                                     </span>
                                     <span className="font-bold">Daily Pulse</span>
                                 </div>
@@ -161,6 +161,8 @@ const LandingPage = () => {
                         <div className="bg-white p-10 rounded-xl flex flex-col md:flex-row items-center gap-8 md:col-span-3">
 
                             <div className="md:w-1/2">
+                                <span className="w-2 h-2 rounded-full bg-green-900 inline-block mx-1.5 my-0.5"></span>
+                                Always Available
                                 <h3 className="font-[Noto_Serif] text-3xl font-bold mb-4">
                                     Mindful Companion
                                 </h3>
@@ -179,7 +181,7 @@ const LandingPage = () => {
                                             navigate("/chat");
                                         }
                                     }}
-                                    className="text-[#246965] font-bold border-[#246965]"
+                                    className="text-[#246965] font-bold border-[#246965] cursor-pointer"
                                 >
                                     Chat with Serenity
                                 </button>
@@ -187,7 +189,7 @@ const LandingPage = () => {
 
                             <div className="md:w-1/2 w-full h-64 rounded-lg overflow-hidden">
                                 <img
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs32sWhJ9mf0FtcT6INtqcWZdJ90v05C33E-72_sXRaxVtAWEqQOubkLy6mr2npffNVrNSpHoL62T5Pz5HiAr-iuXCCFFoHynXNcajuLbHL1VxetzA5LmKiqSr516nEv9OsqMdDCqLeVVhnSIDWJsFK2Dzbl8vihlmJ8M5EAkbw2HQxtJ4E_8nUoO1voNV9Jzw3skUIuynk7qg-0MiR53CO2E7s481QPVz1wvTWK6OPjtYhXvzFMKbSRnk5djSBS1OEXx5yQONstw6"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm9ZEMIdhYmzj-g7VCvWsmVai9ac4RwjIgJnuyO1feuJP9oVdhrhQAWFa1DUcSyha767fJUInN3dPyBY2tMmaWr4aE8GuPM71kTNj7CUrxUFyPoM4vEWkosGhrwo3qPgQp-x8Kkdnw4TI5HRrgPSx9GHItb1Yl8z8mDMJix9XKbDjGy_ETtc7W1QSIIo-AQRGYAAILpyJxgBM1WHSQ5S0_0dtsJgcS-Q11J7-W4zM6kVlbSsMTEFn9EJ3HxC4ra5B-iKW9pcQ3CgED"
                                     alt="AI Companion"
                                     className="w-full h-full object-cover"
                                 />
