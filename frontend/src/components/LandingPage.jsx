@@ -132,9 +132,11 @@ const LandingPage = () => {
                                 <VscSmiley size={32} />
                             </div>
 
-                            <h3 className="font-[Noto_Serif] text-3xl font-bold mb-4">
-                                Mood Tracker
-                            </h3>
+                            <Link to="/mood">
+                                <h3 className="font-[Noto_Serif] text-3xl font-bold mb-4 cursor-pointer">
+                                    Mood Tracker
+                                </h3>
+                            </Link>
 
                             <p className="text-gray-600 text-lg max-w-md">
                                 Identify patterns in your emotional landscape with our tracker.
