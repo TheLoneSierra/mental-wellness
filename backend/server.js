@@ -6,6 +6,8 @@ import authRoutes from "./routes/auth.js";
 import moodRoutes from "./routes/moodRoutes.js";
 import affirmationRoutes from "./routes/affirmationRoute.js";
 import chatRoutes from "./routes/chat.js";
+import journalRoutes from "./routes/journalRoutes.js";
+import insightRoutes from "./routes/insightRoutes.js";
 dotenv.config();
 
 const app = express();
@@ -43,6 +45,8 @@ mongoose
 app.use("/api/auth", authRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/moods", moodRoutes);
+app.use("/api/journal", journalRoutes);
+app.use("/api/insights", insightRoutes);
 app.use("/api/affirmations", affirmationRoutes);
 
 // ✅ Health check

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import { TiHome } from "react-icons/ti";
 import { VscSmiley } from "react-icons/vsc";
@@ -11,7 +11,7 @@ import { BiSolidMoon } from "react-icons/bi";
 import { CiCirclePlus } from "react-icons/ci";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { IoIosLogOut } from "react-icons/io";
-
+import { MdDeleteOutline } from "react-icons/md";
 
 const InsightsPage = () => {
     const data = [
@@ -23,9 +23,76 @@ const InsightsPage = () => {
         { day: "Sat", value: 40 },
         { day: "Sun", value: 55 },
     ];
-
+    const [insights, setInsights] = useState([]);
+    const [showInput, setShowInput] = useState(false);
+    const [title, setTitle] = useState("");
+    const [content, setContent] = useState("");
     const [showLogoutModal, setShowLogoutModal] = useState(false);
 
+    const handleSaveInsight = async () => {
+        if (!title || !content) return;
+
+        const token = localStorage.getItem("token");
+
+        const res = await fetch("http://localhost:5000/api/insights", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ title, content }),
+        });
+
+        const text = await res.text();
+        if (!res.ok) return;
+
+        const data = JSON.parse(text);
+
+        setInsights([data, ...insights]);
+        setTitle("");
+        setContent("");
+        setShowInput(false);
+    };
+
+    useEffect(() => {
+        const fetchInsights = async () => {
+            const token = localStorage.getItem("token");
+
+            const res = await fetch("http://localhost:5000/api/insights", {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            const text = await res.text();
+            if (!res.ok) return;
+
+            const data = JSON.parse(text);
+            setInsights(data);
+        };
+
+        fetchInsights();
+    }, []);
+
+    const handleDeleteInsight = async (id) => {
+        const token = localStorage.getItem("token");
+
+        try {
+            const res = await fetch(`http://localhost:5000/api/insights/${id}`, {
+                method: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            if (!res.ok) return;
+
+            setInsights(insights.filter((item) => item._id !== id));
+
+        } catch (err) {
+            console.error(err);
+        }
+    };
 
     return (
         <div className="bg-[#fbf9f4] text-[#31332e] font-[Manrope] min-h-screen flex">
@@ -126,21 +193,65 @@ const InsightsPage = () => {
 
                             <div className="space-y-4">
 
-                                <div className="bg-white p-6 rounded-xl border-l-4 border-[#246965]">
-                                    <h4 className="font-bold">Morning Gratitude</h4>
-                                    <p className="text-sm text-gray-500">
-                                        The way the light hit the kitchen table...
-                                    </p>
-                                </div>
+                                {insights.map((item, index) => (
+                                    <div
+                                        key={item._id}
+                                        className={`bg-white p-6 rounded-xl border-l-4 ${index % 2 === 0 ? "border-[#246965]" : "border-purple-400"
+                                            } flex justify-between items-start`}
+                                    >
 
-                                <div className="bg-white p-6 rounded-xl border-l-4 border-purple-400">
-                                    <h4 className="font-bold">Reflections on Patience</h4>
-                                    <p className="text-sm text-gray-500">
-                                        Learning to sit with discomfort...
-                                    </p>
-                                </div>
+                                        {/* LEFT CONTENT */}
+                                        <div>
+                                            <h4 className="font-bold">{item.title}</h4>
+                                            <p className="text-sm text-gray-500">
+                                                {item.content}
+                                            </p>
+                                        </div>
 
-                                <div className="border-2 border-dashed p-8 rounded-xl text-center flex flex-col items-center gap-3">
+                                        {/* DELETE ICON */}
+                                        <button
+                                            onClick={() => handleDeleteInsight(item._id)}
+                                            className="text-[#246965] hover:text-red-500 transition cursor-pointer"
+                                        >
+                                            <MdDeleteOutline size={22} />
+                                        </button>
+
+                                    </div>
+                                ))}
+
+                                {/* INPUT BOX (appears after click) */}
+                                {showInput && (
+                                    <div className="bg-white p-6 rounded-xl border-l-4 border-dashed">
+
+                                        <input
+                                            placeholder="Title..."
+                                            value={title}
+                                            onChange={(e) => setTitle(e.target.value)}
+                                            className="w-full font-bold mb-2 outline-none"
+                                        />
+
+                                        <textarea
+                                            placeholder="Write something..."
+                                            value={content}
+                                            onChange={(e) => setContent(e.target.value)}
+                                            className="w-full text-sm outline-none"
+                                        />
+
+                                        <button
+                                            onClick={handleSaveInsight}
+                                            className="mt-2 cursor-pointer text-[#246965] font-bold"
+                                        >
+                                            Save
+                                        </button>
+
+                                    </div>
+                                )}
+
+                                {/* CAPTURE BUTTON */}
+                                <div
+                                    onClick={() => setShowInput(true)}
+                                    className="border-2 border-dashed p-8 rounded-xl text-center flex flex-col items-center gap-3 cursor-pointer"
+                                >
                                     <div className="bg-purple-200 rounded-full p-3">
                                         <CiCirclePlus size={32} className="text-purple-600" />
                                     </div>

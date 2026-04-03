@@ -146,9 +146,11 @@ const LandingPage = () => {
                         {/* JOURNAL */}
                         <div className="bg-[#246965] text-white p-10 rounded-xl flex flex-col justify-between">
                             <div>
-                                <h3 className="font-[Noto_Serif] text-2xl font-bold mb-4">
-                                    Journal
-                                </h3>
+                                <Link to="/journal">
+                                    <h3 className="font-[Noto_Serif] text-2xl font-bold mb-4 cursor-pointer">
+                                        Journal
+                                    </h3>
+                                </Link>
                                 <p className="text-white/80 mb-8">
                                     A private, encrypted space for your thoughts.
                                 </p>

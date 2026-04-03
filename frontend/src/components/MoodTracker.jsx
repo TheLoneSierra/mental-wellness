@@ -262,17 +262,53 @@ const MoodTracker = () => {
                 {/* MODAL */}
                 {showLogoutModal && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
+
+                        {/* BACKDROP */}
                         <div className="absolute inset-0 bg-[#dadad2]/40 backdrop-blur-md"></div>
 
-                        <div className="relative bg-white w-full max-w-sm rounded-xl p-10 text-center">
-                            <IoIosLogOut className="text-3xl mx-auto mb-4" />
-                            <h2>Too soon to logout?</h2>
+                        {/* MODAL */}
+                        <div className="relative bg-white w-full max-w-sm rounded-xl p-10 shadow-[0_-4px_40px_rgba(93,70,131,0.06)] border border-gray-200 text-center">
 
-                            <button onClick={() => setShowLogoutModal(false)}>Stay</button>
-                            <button onClick={() => window.location.href = "/"}>Logout</button>
+                            <div className="mb-6">
+
+                                <div className="w-16 h-16 bg-[#f5f4ed] rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <IoIosLogOut className="text-[#246965] text-3xl" />
+                                </div>
+
+                                <h2 className="font-[Noto_Serif] text-2xl font-bold text-[#31332e]">
+                                    Too soon to logout?
+                                </h2>
+
+                                <p className="mt-3 text-[#5e6059] text-sm leading-relaxed">
+                                    Your session progress is being saved, but your journey is just beginning.
+                                </p>
+
+                            </div>
+
+                            <div className="flex flex-col gap-3">
+
+                                {/* STAY BUTTON */}
+                                <button
+                                    onClick={() => setShowLogoutModal(false)}
+                                    className="w-full py-4 bg-[#246965] text-white rounded-full font-bold hover:opacity-90 transition-all active:scale-95"
+                                >
+                                    No, Stay
+                                </button>
+
+                                {/* LOGOUT BUTTON */}
+                                <button
+                                    onClick={() => window.location.href = "/logout"}
+                                    className="w-full py-4 text-[#246965] font-bold border border-[#246965]/20 rounded-full hover:bg-[#acefe9]/20 transition-all active:scale-95"
+                                >
+                                    Yes, Logout
+                                </button>
+
+                            </div>
+
                         </div>
                     </div>
                 )}
+
 
             </main>
 
