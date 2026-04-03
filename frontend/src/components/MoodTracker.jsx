@@ -297,7 +297,7 @@ const MoodTracker = () => {
 
                                 {/* LOGOUT BUTTON */}
                                 <button
-                                    onClick={() => window.location.href = "/logout"}
+                                    onClick={() => window.location.href = "/"}
                                     className="w-full py-4 text-[#246965] font-bold border border-[#246965]/20 rounded-full hover:bg-[#acefe9]/20 transition-all active:scale-95"
                                 >
                                     Yes, Logout
