@@ -6,7 +6,7 @@ import Sidebar from "../components/Sidebar";
 import axios from "axios";
 // Added imports for icons
 import { IoPersonOutline, IoSettingsOutline } from "react-icons/io5";
-import { IoIosLogOut } from "react-icons/io";
+import { MdLogout } from "react-icons/md";
 
 const ChatPage = () => {
     const [messages, setMessages] = useState([]);
@@ -76,15 +76,15 @@ const ChatPage = () => {
 
                     {/* RIGHT SIDE ICONS */}
                     <div className="flex items-center gap-4 text-[#31332e]">
-                        <IoPersonOutline
+                        <MdLogout
                             size={20}
                             className="cursor-pointer hover:text-[#246965] transition-colors"
                             onClick={() => setShowLogoutModal(true)}
                         />
-                        <IoSettingsOutline
+                        {/* <IoSettingsOutline
                             size={20}
                             className="cursor-pointer hover:text-[#246965] transition-colors"
-                        />
+                        /> */}
                     </div>
                 </header>
 
@@ -105,7 +105,7 @@ const ChatPage = () => {
                     <div className="relative bg-white w-full max-w-sm rounded-xl p-10 shadow-2xl border border-gray-200 text-center">
                         <div className="mb-6">
                             <div className="w-16 h-16 bg-[#f5f4ed] rounded-full flex items-center justify-center mx-auto mb-6">
-                                <IoIosLogOut className="text-[#246965] text-3xl" />
+                                <MdLogout className="text-[#246965] text-3xl" />
                             </div>
                             <h2 className="font-[Noto_Serif] text-2xl font-bold text-[#31332e]">
                                 Too soon to logout?
